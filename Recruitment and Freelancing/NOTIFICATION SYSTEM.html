@@ -1,0 +1,50 @@
+<!-- Add a notifications section to your dashboard -->
+<section class="notifications">
+    <h2>Notifications</h2>
+    <ul id="notification-list">
+        <!-- Notifications will be added here dynamically -->
+    </ul>
+</section>
+
+<script>
+// Simulated notification data (replace with real data)
+const notifications = [
+    { message: 'New project posted.', timestamp: '2 minutes ago' },
+    { message: 'You have a new message.', timestamp: '5 minutes ago' },
+    // Add more notifications here
+];
+
+// Function to display notifications
+function displayNotifications() {
+    const notificationList = document.getElementById('notification-list');
+
+    notifications.forEach((notification) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <p>${notification.message}</p>
+            <span>${notification.timestamp}</span>
+        `;
+        notificationList.appendChild(listItem);
+    });
+}
+
+// Simulate fetching new notifications periodically (polling)
+function pollForNotifications() {
+    // Simulate an AJAX request to fetch new notifications
+    setTimeout(() => {
+        // Replace this with actual data retrieval logic
+        const newNotification = { message: 'New notification', timestamp: 'just now' };
+        notifications.unshift(newNotification);
+        displayNotifications();
+
+        // Poll for notifications again
+        pollForNotifications();
+    }, 3000); // Poll every 3 seconds
+}
+
+// Start polling for notifications when the page loads
+window.addEventListener('load', () => {
+    displayNotifications(); // Display initial notifications
+    pollForNotifications(); // Start polling for new notifications
+});
+</script>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Profile</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+<style>
+    /* Style for the main content container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #0e01018e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the freelancer's name and title */
+.profile-header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.profile-header h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.profile-header p {
+    font-size: 18px;
+    color: #888;
+}
+
+/* Style for the freelancer's description */
+.profile-description {
+    padding: 20px 0;
+}
+
+.profile-description h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.profile-description p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Style for the freelancer's skills */
+.profile-skills {
+    padding: 20px 0;
+}
+
+.profile-skills h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.profile-skills ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-skills li {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+/* Style for the freelancer's portfolio */
+.profile-portfolio {
+    padding: 20px 0;
+}
+
+.profile-portfolio h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.profile-portfolio .portfolio-item {
+    margin-bottom: 20px;
+}
+
+.profile-portfolio .portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Style for the freelancer's contact information */
+.profile-contact {
+    padding: 20px 0;
+}
+
+.profile-contact h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.profile-contact ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-contact li {
+    margin-bottom: 10px;
+}
+
+.profile-contact a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 16px;
+}
+
+.profile-contact a:hover {
+    text-decoration: underline;
+}
+
+/* Style for the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Additional styles can be added based on your specific design requirements */
+</style>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Company Logo" width="70cm" height="70cm">
+                <span>RECRUITMENT AND FREELANCING APPLICATION</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="FREELANCER DASHBOARD.html">Dashboard</a></li>
+                <li><a href="BROWSE JOBS PAGE.html">Browse Jobs</a></li>
+                <li><a href="FREELANCER PROFILE.html">Profile</a></li>
+                <li><a href="HOMEPAGE HTML.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Freelancer Profile Section -->
+    <section class="freelancer-profile">
+        <h1>Freelancer Profile</h1>
+        <div class="profile-details">
+            <div class="profile-image">
+                <img src="profile_picture.jpg" alt="Freelancer Profile Picture" width="150px" height="150px">
+            </div>
+            <div class="profile-info">
+                <h2>John Doe</h2>
+                <p>Freelancer since 2020</p>
+                <p>Location: City, Country</p>
+                <p>Email: johndoe@example.com</p>
+                <p>Skills: Web Development, Graphic Design, SEO</p>
+                <p>Portfolio: <a href="portfolio.html">View Portfolio</a></p>
+            </div>
+        </div>
+        <div class="profile-description">
+            <h2>About Me</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel gravida urna.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <h4>Follow Us</h4>
+                <p>
+                    <a href="https://www.instagram.com/your-instagram" target="_blank">
+                        <img src="Instagram.png" width="40cm" height="40px" alt="Instagram">
+                    </a>
+                    <a href="https://www.twitter.com/your-twitter" target="_blank">
+                        <img src="twitter.png" width="70px" height="50px" alt="Twitter">
+                    </a>
+                    <a href="https://www.facebook.com/your-facebook" target="_blank">
+                        <img src="Facebook.png" width="60px" height="45px" alt="Facebook">
+                    </a>
+                </p>
+            </div>
+            <div class="contact-info">
+                <h4>Contact Us</h4>
+                <p>
+                    <a href="https://api.whatsapp.com/send?phone=your-whatsapp-number" target="_blank">
+                        <img src="whatsapp.jpeg" width="40" height="40px" alt="WhatsApp">
+                    </a>
+                    <a href="mailto:your-email@example.com">
+                        <img src="email.png" width="40px" height="40px" alt="Email Us">
+                    </a>
+                </p>
+            </div>
+        </div>
+        <h4>&copy; 2023 Recruitment and Freelancing Application</h4>
+    </footer>
+
+<script>
+        
+        // JavaScript for toggling portfolio items
+        const portfolioItems = document.querySelectorAll(".portfolio-item");
+        
+        portfolioItems.forEach(item => {
+            item.addEventListener("click", () => {
+                // Toggle a class to show/hide additional details or navigate to a project page
+                item.classList.toggle("expanded");
+            });
+        });
+    
+</script>
+
+</body>
+</html>

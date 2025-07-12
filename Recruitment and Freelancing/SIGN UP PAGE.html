@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<style>
+    /* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* Reset some default styles */
+body, h1, p, label, input, button {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 15px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#success-message {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+    display: none;
+    margin-top: 10px;
+}
+
+
+      /* Style for the footer */
+      footer {
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        margin: 1cm;
+    }
+
+
+
+    .contact-info {
+        text-align: right; /* Align "Contact Us" to the right */
+    }
+</style>
+
+    <header>
+        <nav>
+            <div class="logo"><img src="logo.png" alt="Company Logo" width="70cm" height="70cm"><span style="color:  rgba(66, 135, 238, 0.795);"> RECRUITMENT AND FREELANCING APPLICATION </span></div>
+
+        </nav>
+    </header><br><br>
+
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signup-form">
+            <label for="user-type">Select User Type:</label>
+            <select id="user-type">
+                <option value="freelancer">Freelancer</option>
+                <option value="employer">Employer</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Sign Up </button>
+        </form>
+
+        <p>Already have an account? <a href="LOGIN PAGE HTML.html">Sign In</a></p>
+    </div>
+
+    <div id="success-message" style="display: none;">
+        <p>Registration successful! You can now sign in.</p>
+    </div><br><br>
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <h4>Follow Us</h4>
+                
+                    <p><a href="https://www.instagram.com/your-instagram" target="_blank"><img src="Instagram.png" width="40cm" height="40px" alt="Instagram"></a><a href="https://www.twitter.com/your-twitter" target="_blank"><img src="twitter.png" width="70px" height="50px" alt="Twitter"></a><a href="https://www.facebook.com/your-facebook" target="_blank"><img src="Facebook.png" width="60px" height="45px" alt="Facebook"></a></p>
+            </div>
+            <div class="contact-info">
+                <h4>Contact Us</h4>
+                
+                    <p><a href="https://api.whatsapp.com/send?phone=your-whatsapp-number" target="_blank"><img src="whatsapp.jpeg" width="40" height="40px" alt="WhatsApp"></a>  <a href="mailto:your-email@example.com"><img src="email.png" width="40px" height="40px"  alt="Email Us"></a></p>
+                
+            </div>
+        </div>
+
+        <h4>&copy; 2023 Recruitment and Freelancing Application</h4>
+    </footer>
+
+    <script>
+        // Function to handle form submission
+        function handleSignUp(event) {
+            event.preventDefault(); // Prevent the form from submitting
+    
+            // Get form elements
+            const userTypeSelect = document.getElementById('user-type');
+            const usernameInput = document.getElementById('username');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const successMessage = document.getElementById('success-message');
+    
+            // Get the selected user type
+            const userType = userTypeSelect.value;
+    
+            // Get the entered username, email, and password
+            const username = usernameInput.value;
+            const email = emailInput.value;
+            const password = passwordInput.value;
+    
+            // Perform basic validation (you can add more validation as needed)
+            if (!username || !email || !password) {
+                alert('Please fill in all fields.');
+                return;
+            }
+    
+            // Simulate a successful sign-up (replace this with your actual sign-up logic)
+            // For demonstration purposes, we're just displaying a success message
+            successMessage.style.display = 'block';
+            successMessage.textContent = 'Registration successful! You can now sign in.';
+    
+            // Optionally, you can redirect the user to a different page after successful sign-up
+            // window.location.href = 'signin.html';
+        }
+    
+        // Get the sign-up form element by its ID
+        const signUpForm = document.getElementById('signup-form');
+    
+        // Add a submit event listener to the sign-up form
+        signUpForm.addEventListener('submit', handleSignUp);
+
+
+
+
+
+    </script>
+
+ 
+</body>
+</html>

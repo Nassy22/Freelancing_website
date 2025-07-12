@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Can Validate Input</h1>
+this is the element of the html page which should be designed and imprimentedd
+ by the developer and otehrwise should not shown to admin 
+After the devlopment process the page should be looked so nice and delicious 
+By this time i have to keep busy myself on keeping this right 
+and also in order to succeed we have to keep our things hden even for our near people 
+for making that will make my website more greatful on people looking 
+ltather than the opinions you havd to keep youself in the one focus in order to make
+ the big things happen bigger also therefore for making thatit will make your webpage 
+ looking so greate lather than the people view also ihave to tell people about my personal 
+ feeling this time now 
+and for things that i have to make o this time mostly there are more different between 
+being developer and being wesite desiner
+but for all things that iwrite today i have to say something 
+for my fellow that follow me this time we ave to say that we made it
+
+<p>Please input a number between 1 and 10:</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x, text;
+
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("numb").value;
+
+    // If x is Not a Number or less than one or greater than 10
+    if (isNaN(x) || x < 1 || x > 10) {
+        text = "Input not valid";
+    } else {
+        text = "Input OK";
+    }
+    document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html>

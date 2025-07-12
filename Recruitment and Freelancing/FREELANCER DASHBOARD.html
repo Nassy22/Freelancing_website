@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Dashboard</title>
+    <link rel="stylesheet" href="freelancer_dashboard.css">
+</head>
+<body>
+
+    <style>
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styles for the freelancer dashboard */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.projects {
+    margin-top: 20px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Add more CSS for displaying the list of projects as needed */
+    </style>
+
+    <header>
+        <nav>
+            <div class="logo">Your Freelancer Logo</div>
+            <ul class="nav-links">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Earnings</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="dashboard">
+        <h1>Welcome to Your Freelancer Dashboard</h1>
+        <div class="summary">
+            <div class="box">
+                <h2>Total Projects</h2>
+                <p>10</p>
+            </div>
+            <div class="box">
+                <h2>Earnings</h2>
+                <p>$5,000</p>
+            </div>
+            <div class="box">
+                <h2>Active Projects</h2>
+                <p>5</p>
+            </div>
+        </div>
+        <div class="projects">
+            <h2>Projects</h2>
+            <!-- Add a list of projects here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Freelancer Company</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Reference to the section where you want to display projects
+            const projectsSection = document.querySelector(".projects");
+    
+            // Dummy data for projects (replace with actual data)
+            const projectsData = [
+                { title: "Project 1", description: "Description for Project 1" },
+                { title: "Project 2", description: "Description for Project 2" },
+                { title: "Project 3", description: "Description for Project 3" },
+            ];
+    
+            // Function to create a project element
+            function createProjectElement(project) {
+                const projectElement = document.createElement("div");
+                projectElement.classList.add("project");
+                projectElement.innerHTML = `
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                `;
+                return projectElement;
+            }
+    
+            // Function to display projects
+            function displayProjects() {
+                // Clear the existing content
+                projectsSection.innerHTML = "";
+    
+                // Iterate through the projectsData and create project elements
+                projectsData.forEach((project) => {
+                    const projectElement = createProjectElement(project);
+                    projectsSection.appendChild(projectElement);
+                });
+            }
+    
+            // Call the function to display projects when the page loads
+            displayProjects();
+        });
+    </script>
+
+
+</body>
+</html>

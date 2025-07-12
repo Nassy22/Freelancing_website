@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+    <style>
+/* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-right: 10px;
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+    </style>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Company Logo" width="70" height="70">
+                <span>RECRUITMENT AND FREELANCING APPLICATION</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="ADMIN HTML.html">Home</a></li>
+                <li><a href="ADMIN MANAGE USERS.html">Manage Users</a></li>
+                <li><a href="ADMIN MANAGE PROJECTS.html">Manage Projects</a></li>
+                <li><a href="ADMIN SETTINGS.html">Admin Settings</a></li>
+                <li><a href="HOMEPAGE HTML.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        // JavaScript code
+        document.addEventListener("DOMContentLoaded", function () {
+            // Find the "Logout" link by its index (assuming it's the last link)
+            const logoutLink = document.querySelectorAll(".nav-links li a")[4];
+    
+            // Add a click event listener to the "Logout" link
+            logoutLink.addEventListener("click", function (event) {
+                // Prevent the default action (in this case, navigating to a new page)
+                event.preventDefault();
+    
+                // Display an alert when the "Logout" link is clicked
+                alert("You have been logged out!");
+                
+                // You can add additional code here to perform logout-related tasks
+                // For example, you can make an AJAX request to log the user out on the server-side.
+            });
+        });
+    </script>
+
+</body>
+</html>

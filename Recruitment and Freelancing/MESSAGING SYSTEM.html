@@ -1,0 +1,104 @@
+<!-- Messaging Section -->
+<section id="messaging">
+    <!-- Messaging Container -->
+    <div id="message-container">
+        <!-- Messages Go Here -->
+        <div class="message">
+            <p>Employer: Hi, I'm interested in your proposal.</p>
+        </div>
+        <div class="message">
+            <p>Freelancer: Hello, I'd be happy to work on your project.</p>
+        </div>
+        <!-- Add more messages here -->
+    </div>
+    
+    <!-- Message Input Form -->
+    <form id="message-form">
+        <input type="text" id="message-input" placeholder="Type your message..." />
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+
+<style>
+/* Messaging Styles */
+#messaging {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#message-container {
+    max-height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#message-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#message-form button {
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+</style>
+
+
+<script>
+    // JavaScript for Messaging
+document.addEventListener("DOMContentLoaded", function () {
+    const messageForm = document.getElementById("message-form");
+    const messageInput = document.getElementById("message-input");
+    const messageContainer = document.getElementById("message-container");
+
+    // Function to add a new message to the chat
+    function addMessage(message, sender) {
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("message");
+        messageElement.innerHTML = `<p>${sender}: ${message}</p>`;
+        messageContainer.appendChild(messageElement);
+    }
+
+    // Event listener for message submission
+    messageForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const messageText = messageInput.value.trim();
+        if (messageText !== "") {
+            addMessage(messageText, "You");
+            // Send the message to the server or perform other actions here
+            messageInput.value = ""; // Clear the input field
+        }
+    });
+
+    // Example: Simulate receiving a message
+    setTimeout(function () {
+        addMessage("Hello, how can I assist you?", "Employer");
+    }, 1000);
+});
+</script>

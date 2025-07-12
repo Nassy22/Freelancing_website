@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Search and Filters</title>
+</head>
+<body>
+
+    <style>
+/* Add your CSS styles for search and filters here */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+#searchResults {
+    margin-top: 20px;
+}
+
+.result {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.result h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.result p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Style the search button if needed */
+ button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+} 
+    </style>
+
+    <header>
+        <nav>
+            <!-- Your navigation menu goes here -->
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Search and Filters</h1>
+
+        <!-- Search bar -->
+        <input type="text" id="searchInput" placeholder="Search for projects or freelancers">
+
+        <!-- Filter options -->
+        <label for="filterSkills">Filter by Skills:</label>
+        <select id="filterSkills">
+            <option value="all">All Skills</option>
+            <option value="design">Design</option>
+            <option value="development">Development</option>
+            <!-- Add more skills as needed -->
+        </select>
+
+        <label for="filterLocation">Filter by Location:</label>
+        <input type="text" id="filterLocation" placeholder="Enter location">
+
+        <!-- Results display -->
+        <div id="searchResults">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+
+    <script src="script.js">
+        document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const filterSkills = document.getElementById("filterSkills");
+    const filterLocation = document.getElementById("filterLocation");
+    const searchResults = document.getElementById("searchResults");
+
+    // Sample data for demonstration
+    const sampleData = [
+        {
+            title: "Web Design Project",
+            skills: ["design", "frontend", "ui/ux"],
+            location: "New York",
+        },
+        {
+            title: "Mobile App Development",
+            skills: ["development", "mobile", "android"],
+            location: "San Francisco",
+        },
+        // Add more sample data as needed
+    ];
+
+    // Function to display search results
+    function displayResults(results) {
+        searchResults.innerHTML = "";
+
+        if (results.length === 0) {
+            searchResults.innerHTML = "<p>No results found.</p>";
+            return;
+        }
+
+        results.forEach(result => {
+            const resultElement = document.createElement("div");
+            resultElement.classList.add("result");
+            resultElement.innerHTML = `<h2>${result.title}</h2><p>Skills: ${result.skills.join(", ")}</p><p>Location: ${result.location}</p>`;
+            searchResults.appendChild(resultElement);
+        });
+    }
+
+    // Event listeners for search and filter changes
+    searchInput.addEventListener("input", updateSearch);
+    filterSkills.addEventListener("change", updateSearch);
+    filterLocation.addEventListener("input", updateSearch);
+
+    // Function to update search results based on filters
+    function updateSearch() {
+        const searchText = searchInput.value.toLowerCase();
+        const selectedSkill = filterSkills.value;
+        const locationText = filterLocation.value.toLowerCase();
+
+        const filteredResults = sampleData.filter(result => {
+            const titleMatch = result.title.toLowerCase().includes(searchText);
+            const skillMatch = selectedSkill === "all" || result.skills.includes(selectedSkill);
+            const locationMatch = result.location.toLowerCase().includes(locationText);
+            return titleMatch && skillMatch && locationMatch;
+        });
+
+        displayResults(filteredResults);
+    }
+
+    // Initial search
+    updateSearch();
+});
+    </script>
+</body>
+</html>

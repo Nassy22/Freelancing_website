@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+
+    <style>
+       /* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #deff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* Style the container */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Style form elements */
+form {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #6bbd6f;
+}
+
+/* Style links */
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Style success message */
+.success-message {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+      /* Style for the footer */
+      footer {
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        margin: 1cm;
+    }
+
+    .contact-info {
+        text-align: right; /* Align "Contact Us" to the right */
+    }
+
+    </style>
+
+    <header>
+        <nav>
+            <div class="logo"><img src="logo.png" alt="Company Logo" width="70cm" height="70cm"><span style="color:  rgba(66, 135, 238, 0.795);"> RECRUITMENT AND FREELANCING APPLICATION </span></div>
+                  
+        </nav>
+    </header><br><br>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="user-type">Select User Type:</label>
+            <select id="user-type" name="user-type">
+                <option value="freelancer">Freelancer</option>
+                <option value="employer">Employer</option>
+                <option value="admin">admin</option>
+            </select>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit"> login</a></button>
+        </form>
+        <div id="reset-password">
+            <p>Forgot your password? <a href="PASSWORD RESET PAGE.html">Reset it here</a></p>
+        </div>
+        <div id="create-account">
+            <p>Don't have an account? <a href="SIGN UP PAGE.html">Create one here</a></p>
+        </div>
+        <hr>
+    </div><br><br>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <h4>Follow Us</h4>
+                
+                    <p><a href="https://www.instagram.com/your-instagram" target="_blank"><img src="Instagram.png" width="40cm" height="40px" alt="Instagram"></a><a href="https://www.twitter.com/your-twitter" target="_blank"><img src="twitter.png" width="70px" height="50px" alt="Twitter"></a><a href="https://www.facebook.com/your-facebook" target="_blank"><img src="Facebook.png" width="60px" height="45px" alt="Facebook"></a></p>
+            </div>
+            <div class="contact-info">
+                <h4>Contact Us</h4>
+                
+                    <p><a href="https://api.whatsapp.com/send?phone=your-whatsapp-number" target="_blank"><img src="whatsapp.jpeg" width="40" height="40px" alt="WhatsApp"></a>  <a href="mailto:your-email@example.com"><img src="email.png" width="40px" height="40px"  alt="Email Us"></a></p>
+            
+            </div>
+        </div>
+
+        <h4>&copy; 2023 Recruitment and Freelancing Application</h4>
+    </footer>
+
+    <script>
+        // Function to handle form submission
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get form elements
+            const userTypeSelect = document.getElementById('user-type');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+
+            // Get the selected user type
+            const userType = userTypeSelect.value;
+
+            // Get the entered email and password
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            // Perform basic validation (you can add more validation as needed)
+            if (!email || !password) {
+                alert('Please fill in all fields.');
+                return;
+            }
+        }
+        // Get the login form element by its ID
+        const loginForm = document.getElementById('login-form');
+
+        // Add a submit event listener to the login form
+        loginForm.addEventListener('submit', handleLogin);
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get the selected user type
+            const userType = document.getElementById("user-type").value;
+            
+            // Get the entered email and password
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            
+            // Perform login based on the selected user type
+            if (userType === "freelancer") {
+                // Handle Freelancer login
+                // Replace the URL with the Freelancer dashboard URL
+                window.location.href = "FREELANCER HTML.html";
+            }  if (userType === "employer") {
+                // Handle Employer login
+                // Replace the URL with the Employer dashboard URL
+                window.location.href = "EMPLOYER HTML.html";
+            }
+
+         else if (userType === "admin") {
+                // Handle admin login
+                // Replace the URL with the admin dashboard URL
+                window.location.href = "ADMIN HTML.html";
+            }
+        });
+    </script>
+</body>
+</html> x

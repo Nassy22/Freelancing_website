@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Manage Projects</title>
+    <link rel="stylesheet" href="admin_manage_projects.css">
+</head>
+<body>
+
+<style>
+    /* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+thead th {
+    font-weight: bold;
+}
+
+tfoot {
+    text-align: center;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+</style>
+
+    <header>
+        <h1>Admin Manage Projects</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Project Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Project data will be dynamically populated here -->
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <button id="add-project">Add Project</button>
+    </footer>
+
+    <script>
+        // Sample project data (you would replace this with actual data from your backend)
+const projectsData = [
+    { id: 1, name: "Project A", description: "Description for Project A" },
+    { id: 2, name: "Project B", description: "Description for Project B" },
+    { id: 3, name: "Project C", description: "Description for Project C" },
+];
+
+// Function to display projects in the table
+function displayProjects() {
+    const tableBody = document.querySelector("tbody");
+
+    // Clear existing table rows
+    tableBody.innerHTML = "";
+
+    // Loop through projects and create table rows
+    projectsData.forEach((project) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${project.id}</td>
+            <td>${project.name}</td>
+            <td>${project.description}</td>
+            <td>
+                <button class="edit-button" data-id="${project.id}">Edit</button>
+                <button class="delete-button" data-id="${project.id}">Delete</button>
+            </td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+
+    // Add event listeners to edit and delete buttons
+    const editButtons = document.querySelectorAll(".edit-button");
+    const deleteButtons = document.querySelectorAll(".delete-button");
+
+    editButtons.forEach((button) => {
+        button.addEventListener("click", handleEdit);
+    });
+
+    deleteButtons.forEach((button) => {
+        button.addEventListener("click", handleDelete);
+    });
+}
+
+// Function to handle edit button click
+function handleEdit(event) {
+    const projectId = event.target.dataset.id;
+
+    // You can implement edit functionality here, e.g., open a modal for editing
+    console.log(`Edit project with ID ${projectId}`);
+}
+
+// Function to handle delete button click
+function handleDelete(event) {
+    const projectId = event.target.dataset.id;
+
+    // You can implement delete functionality here, e.g., show a confirmation dialog
+    if (confirm(`Delete project with ID ${projectId}?`)) {
+        // Perform delete action (you'd typically send a request to the server)
+        // For this example, we'll remove the project from the local data
+        const projectIndex = projectsData.findIndex((project) => project.id === parseInt(projectId, 10));
+        if (projectIndex !== -1) {
+            projectsData.splice(projectIndex, 1);
+            displayProjects(); // Refresh the table
+        }
+    }
+}
+
+// Initial display of projects
+displayProjects();
+    </script>
+    
+</body>
+</html>

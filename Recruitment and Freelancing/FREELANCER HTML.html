@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Dashboard</title>
+</head>
+<body>
+
+    <style>
+        /* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color:  #a7dff0;
+    color: white;
+    padding: 10px 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-right: 10px;
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+a:link, a:visited {
+
+    color:blue;
+    padding: 14px 25px;
+    text-align: center;	
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.box {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.summary {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+    </style>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Company Logo" width="70" height="70">
+                <span>RECRUITMENT AND FREELANCING APPLICATION</span>
+            </div>
+        
+        </nav>
+    </header>
+    <section class="dashboard">
+        <h1>Welcome to Your Freelancer Dashboard</h1>
+        <div class="summary">
+            <div class="box">
+               <a href="FREELANCER HTML.html">Home</a>
+                
+            </div>
+            <div class="box">
+                <a href="BROWSE JOBS PAGE.html">Browse Jobs</a>
+            
+            </div>
+            <div class="box">
+                <a href="FREELANCER DASHBOARD.html">Dashboard</a>
+                
+            </div>
+            <div class="box">
+                 <a href="FREELANCER PROFILE.html">Profile</a>
+            </div>
+           
+            <div class="box">
+              <a href="FREELANCER PROPOSAL SUBMISSION FORM HTML.html">Submit Proposal</a>
+            </div>
+        </div>
+        
+            <!-- Add a list of projects here -->
+        </div>
+    </section>
+
+    <script>
+        // JavaScript code
+        const dashboardLink = document.getElementById("dashboard-link");
+
+        dashboardLink.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the link from navigating
+            alert("This is your Freelancer Dashboard!");
+        });
+    </script>
+
+</body>
+</html>

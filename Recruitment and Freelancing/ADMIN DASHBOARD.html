@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin_dashboard.css">
+</head>
+<body>
+
+    <style>
+        /* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styles for the admin dashboard */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.users {
+    margin-top: 20px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Add some basic styles for the analytics section */
+.analytics {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Add more CSS for displaying the list of users as needed */
+    </style>
+
+    <header>
+        <nav>
+            <div class="logo">Admin Dashboard</div>
+            <ul class="nav-links">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Users</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Payments</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+<!-- Add a new section for analytics -->
+<section class="analytics">
+    <h2>Analytics</h2>
+    <div class="chart-container">
+        <canvas id="userChart" width="400" height="200"></canvas>
+    </div>
+</section>
+
+
+    <section class="dashboard">
+        <h1>Welcome to the Admin Dashboard</h1>
+        <div class="summary">
+            <div class="box">
+                <h2>Total Users</h2>
+                <p>100</p>
+            </div>
+            <div class="box">
+                <h2>Total Projects</h2>
+                <p>50</p>
+            </div>
+            <div class="box">
+                <h2>Total Payments</h2>
+                <p>$50,000</p>
+            </div>
+        </div>
+        <div class="users">
+            <h2>Registered Users</h2>
+            <!-- Add a list of users here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Admin Dashboard</p>
+    </footer>
+</body>
+
+<script src="script.js">
+// Sample data for analytics (you should replace this with real data)
+const userData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    datasets: [{
+        label: 'New Users',
+        data: [10, 5, 20, 15, 30],
+        backgroundColor: 'rgba(66, 135, 238, 0.7)',
+    }]
+};
+
+// Get the canvas element and create a chart
+const userChartElement = document.getElementById('userChart');
+const userChart = new Chart(userChartElement, {
+    type: 'bar',
+    data: userData,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Number of Users'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Month'
+                }
+            }
+        }
+    }
+});
+</script>
+
+</html>
